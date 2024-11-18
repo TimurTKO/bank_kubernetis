@@ -37,7 +37,7 @@ steps:
         "-t",
         "us-central1-docker.pkg.dev/$_PROJECT_ID/$_ARTIFACT_REPO/$_IMAGE_NAME_ST:$_ENV_ST_NAME"
       ]
-  - name: "gcr.io/cloud-builders/docker"
+  - name: "gcr.io/cloud-builders/docker" # Push the Streamlit container image to Artifact Registry
     args:
       [
         "push", # Push the Streamlit container image to Artifact Registry
