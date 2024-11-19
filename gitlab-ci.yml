@@ -12,6 +12,11 @@ variables:
   IMAGE_NAME_ST: "streamlit"
   ARTIFACT_REPO: "bankprediction"
 
+before_script:
+  - echo jsonkeygcp > /tmp/service-acct.json
+  - gcloud auth activate-service-account --key-file=/tmp/service-acct.json
+  - gcloud config set project $projectname
+
 steps:
   # Build and push FastAPI container image
   - name: "gcr.io/cloud-builders/docker"
