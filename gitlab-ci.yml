@@ -12,12 +12,44 @@ variables:
   IMAGE_NAME_ST: "streamlit"
   ARTIFACT_REPO: "bankprediction"
 
-before_script:
-  - echo jsonkeygcp > /tmp/service-acct.json
-  - gcloud auth activate-service-account --key-file=/tmp/service-acct.json
-  - gcloud config set project $projectname
+stages:
+  - build
+  - deploy  
 
+before_script:
+  #stage: deploy   # stage name 
+  #environment: staging # environment name 
+  #only:
+  #  - main
+  - cp $jsonkeygcp /tmp/service-acct.json #Used for authentication
+  - gcloud auth activate-service-account --key-file=/tmp/service-acct.json
+  - gcloud config set project $projectname # for project id
+  #- gcloud builds submit  --config=cloudbuild.yaml --substitutions=_PROJECT_ID=$projectname,_ARTIFACT_REPO=$ARTIFACT_REPO,_ENV_API_NAME=$ENV_API_NAME,_ENV_ST_NAME=$ENV_ST_NAME,_IMAGE_NAME_FS=$IMAGE_NAME_FS,_IMAGE_NAME_ST=$IMAGE_NAME_ST .
+ 
 steps:
+  build_fastapi:
+  stage: build
+  script:
+    - cd bankprediction_kubernetis/API
+    - docker build -t us-central1-docker.pkg.dev/$projectname/$ARTIFACT_REPO/$IMAGE_NAME_ST:$ENV_ST_NAME .
+    - docker push us-central1-docker.pkg.dev/$projectname/$ARTIFACT_REPO/$IMAGE_NAME_ST:$ENV_ST_NAME
+  only:
+    - main
+
+build_streamlit:
+  stage: build
+  script:
+    - cd streamlit_app
+    - docker build -t $GCR_HOSTNAME/$PROJECT_ID/streamlit-app:$CI_COMMIT_SHORT_SHA .
+    - docker push $GCR_HOSTNAME/$PROJECT_ID/streamlit-app:$CI_COMMIT_SHORT_SHA
+  only:
+    - main
+  
+  
+  
+  
+  
+  
   # Build and push FastAPI container image
   - name: "gcr.io/cloud-builders/docker"
     args:
