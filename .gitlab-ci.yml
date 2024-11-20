@@ -30,7 +30,7 @@ before_script:
 build_fastapi:
   stage: build
   script:
-    - cd bankprediction_kubernetis/API
+    - cd API
     - docker build -t us-central1-docker.pkg.dev/$projectname/$ARTIFACT_REPO/$IMAGE_NAME_ST:$ENV_ST_NAME .
     - docker push us-central1-docker.pkg.dev/$projectname/$ARTIFACT_REPO/$IMAGE_NAME_ST:$ENV_ST_NAME
   only:
