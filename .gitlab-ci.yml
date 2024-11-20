@@ -1,7 +1,7 @@
 image: google/cloud-sdk:latest
 
 variables:
-  #PROJECT_ID: your-project-id
+  PROJECT_ID: bankprediction-kubernetis
   CLUSTER_NAME: bankprediction
   CLUSTER_ZONE: us-central1-a  # e.g., us-central1-a
   GCR_HOSTNAME: gcr.io
@@ -31,8 +31,8 @@ build_fastapi:
   stage: build
   script:
     - cd API
-    - docker build -t us-central1-docker.pkg.dev/$projectname/$ARTIFACT_REPO/$IMAGE_NAME_ST:$ENV_ST_NAME .
-    - docker push us-central1-docker.pkg.dev/$projectname/$ARTIFACT_REPO/$IMAGE_NAME_ST:$ENV_ST_NAME
+    - docker build -t "us-central1-docker.pkg.dev/$PROJECT_ID/$ARTIFACT_REPO/$IMAGE_NAME_ST:$ENV_ST_NAME" .
+    - docker push "us-central1-docker.pkg.dev/$PROJECT_ID/$ARTIFACT_REPO/$IMAGE_NAME_ST:$ENV_ST_NAME"
   only:
     - main
 
