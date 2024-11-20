@@ -28,22 +28,22 @@ before_script:
  
 
 build_fastapi:
-stage: build
-script:
-  - cd bankprediction_kubernetis/API
-  - docker build -t us-central1-docker.pkg.dev/$projectname/$ARTIFACT_REPO/$IMAGE_NAME_ST:$ENV_ST_NAME .
-  - docker push us-central1-docker.pkg.dev/$projectname/$ARTIFACT_REPO/$IMAGE_NAME_ST:$ENV_ST_NAME
-only:
-  - main
-
-build_streamlit:
-stage: build
+  stage: build
   script:
-    - cd streamlit_app
-    - docker build -t $GCR_HOSTNAME/$PROJECT_ID/streamlit-app:$CI_COMMIT_SHORT_SHA .
-    - docker push $GCR_HOSTNAME/$PROJECT_ID/streamlit-app:$CI_COMMIT_SHORT_SHA
+    - cd bankprediction_kubernetis/API
+    - docker build -t us-central1-docker.pkg.dev/$projectname/$ARTIFACT_REPO/$IMAGE_NAME_ST:$ENV_ST_NAME .
+    - docker push us-central1-docker.pkg.dev/$projectname/$ARTIFACT_REPO/$IMAGE_NAME_ST:$ENV_ST_NAME
   only:
     - main
+
+build_streamlit:
+  stage: build
+    script:
+      - cd streamlit_app
+      - docker build -t $GCR_HOSTNAME/$PROJECT_ID/streamlit-app:$CI_COMMIT_SHORT_SHA .
+      - docker push $GCR_HOSTNAME/$PROJECT_ID/streamlit-app:$CI_COMMIT_SHORT_SHA
+    only:
+      - main
   
   
   
