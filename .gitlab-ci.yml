@@ -36,14 +36,14 @@ build_fastapi:
   only:
     - main
 
-build_streamlit:
-  stage: build
-    script:
-      - cd streamlit_app
-      - docker build -t $GCR_HOSTNAME/$PROJECT_ID/streamlit-app:$CI_COMMIT_SHORT_SHA .
-      - docker push $GCR_HOSTNAME/$PROJECT_ID/streamlit-app:$CI_COMMIT_SHORT_SHA
-    only:
-      - main
+# build_streamlit:
+#   stage: build
+#     script:
+#       - cd streamlit_app
+#       - docker build -t $GCR_HOSTNAME/$PROJECT_ID/streamlit-app:$CI_COMMIT_SHORT_SHA .
+#       - docker push $GCR_HOSTNAME/$PROJECT_ID/streamlit-app:$CI_COMMIT_SHORT_SHA
+#     only:
+#       - main
   
   
   
