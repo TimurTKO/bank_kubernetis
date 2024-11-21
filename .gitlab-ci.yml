@@ -31,7 +31,7 @@ build_fastapi:
   stage: build
   script:
     - cd API
-    - docker build -t "us-central1-docker.pkg.dev/$PROJECT_ID/$ARTIFACT_REPO/$IMAGE_NAME_ST:$ENV_ST_NAME" .
+    - docker build -t "us-central1-docker.pkg.dev/$PROJECT_ID/$ARTIFACT_REPO/$IMAGE_NAME_ST:$ENV_ST_NAME" . # build the docker image
     - docker push "us-central1-docker.pkg.dev/$PROJECT_ID/$ARTIFACT_REPO/$IMAGE_NAME_ST:$ENV_ST_NAME"
   only:
     - main
