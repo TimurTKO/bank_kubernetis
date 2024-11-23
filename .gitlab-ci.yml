@@ -16,7 +16,12 @@ stages:
   - build
   - deploy  
 
-before_script:
+deploy_staging:
+  stage: deploy   # stage name 
+  environment: staging # environment name 
+  only:
+    - main
+  script:
   #stage: deploy   # stage name 
   #environment: staging # environment name 
   #only:
