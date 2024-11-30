@@ -19,26 +19,22 @@ if click:
             "json_str": json_str
         }
 
-        FASTAPI_URL = os.getenv('FASTAPI_URL')
+       
         
-        # Проверка, установлен ли FASTAPI_URL
-        if not FASTAPI_URL:
-            st.error("URL сервиса FastAPI не найден.")
-        else:
-            url = f"{FASTAPI_URL}/receivedataframe"
-            response = requests.post(url, json=payload)
-            
-            # Обработка ответа только если запрос успешен
-            if response.status_code == 200:
-                predictions = response.json()
-                df_predictions = pd.DataFrame(data={"predictions": predictions})
-                csv = df_predictions.to_csv(index=False)
+        url = f"http://fastapi/receivedataframe"
+        response = requests.post(url, json=payload)
+        
+        # Обработка ответа только если запрос успешен
+        if response.status_code == 200:
+            predictions = response.json()
+            df_predictions = pd.DataFrame(data={"predictions": predictions})
+            csv = df_predictions.to_csv(index=False)
 
-                st.download_button(
-                    label="Скачать результаты",
-                    data=csv,
-                    file_name="results.csv",
-                    mime="text/csv"
-                )
-            else:
-                st.error("Ошибка при запросе к сервису FastAPI. Проверьте URL и доступность сервиса.")
+            st.download_button(
+                label="Скачать результаты",
+                data=csv,
+                file_name="results.csv",
+                mime="text/csv"
+            )
+        else:
+            st.error("Ошибка при запросе к сервису FastAPI. Проверьте URL и доступность сервиса.")
