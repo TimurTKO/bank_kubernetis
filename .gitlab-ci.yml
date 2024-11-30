@@ -2,7 +2,7 @@ image: google/cloud-sdk:latest
 
 variables:
   PROJECT_ID: bankprediction-kubernetis # project id
-  CLUSTER_NAME: bankprediction # cluster name 1
+  CLUSTER_NAME: "bankprediction-2" # cluster name 1
   CLUSTER_ZONE: us-central1-a  # e.g., us-central1-a
   GCR_HOSTNAME: gcr.io # Google Container Registry hostname
   KUBE_NAMESPACE: default # Kubernetes namespace
