@@ -17,3 +17,10 @@ spec:
         image: gcr.io/projectname/fastapi-app:latest
         ports:
         - containerPort: 8000
+        resources:
+          requests:
+            memory: "1Gi"
+            cpu: "0.5"
+          limits:
+            memory: "2Gi"
+            cpu: "2"

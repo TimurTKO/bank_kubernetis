@@ -17,3 +17,10 @@ spec:
         image: gcr.io/projectname/streamlit-app:latest
         ports:
         - containerPort: 8501
+        resources:
+          requests:
+            memory: "1Gi"
+            cpu: "0.5"
+          limits:
+            memory: "2Gi"
+            cpu: "2"
