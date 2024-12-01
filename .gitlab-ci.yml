@@ -6,11 +6,11 @@ variables:
   CLUSTER_ZONE: us-central1-a  # e.g., us-central1-a
   GCR_HOSTNAME: gcr.io # Google Container Registry hostname
   KUBE_NAMESPACE: default # Kubernetes namespace
-  ENV_API_NAME: "api-0.1" # API version
-  ENV_ST_NAME: "streamlit-0.1" # Streamlit version
+  ENV_API_NAME: "api-0.2" # API version
+  ENV_ST_NAME: "streamlit-0.2" # Streamlit version
   IMAGE_NAME_FS: "fastapi" #  FastAPI image name
   IMAGE_NAME_ST: "streamlit" # Streamlit image name
-  ARTIFACT_REPO: "bankprediction" # Artifact Registry repository name
+  ARTIFACT_REPO: "bankprediction-kubernetis" # Artifact Registry repository name
 
 stages:
   - build
