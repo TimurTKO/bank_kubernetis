@@ -21,7 +21,7 @@ if click:
 
        
         
-        url = f"http://fastapi/receivedataframe"
+        url = f"http://fastapi-service/receivedataframe"
         response = requests.post(url, json=payload)
         
         # Обработка ответа только если запрос успешен
