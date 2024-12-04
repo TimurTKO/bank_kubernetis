@@ -4,7 +4,7 @@ import requests
 import os
 
 fastapi_url = os.environ.get('FASTAPI_URL', 'http://fastapi/receivedataframe')
-st.write("Используемый URL для FastAPI:", fastapi_url)
+st.write("Используемый URL для FastAPI:", fastapi_url) # new one
 
 #st.write("Переменные окружения:", os.environ)
 st.title("Предсказание на основе модели")
