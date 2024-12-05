@@ -22,7 +22,7 @@ if click:
             "json_str": json_str
         }
 
-        url = f"http://fastapi/receivedataframe"
+        url = f"http://fastapi-service/receivedataframe"
         st.write("Запрашиваемый URL:", url)
         
         #url = f"http://fastapi/receivedataframe" 
