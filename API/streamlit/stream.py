@@ -3,14 +3,13 @@ import pandas as pd
 import requests
 import os
 
-fastapi_url = os.environ.get('FASTAPI_URL', 'http://fastapi/receivedataframe')
-st.write("Используемый URL для FastAPI:", fastapi_url) # new one
+
 
 #st.write("Переменные окружения:", os.environ)
 st.title("Предсказание на основе модели")
 st.write("Загрузите файл с данными для предсказания")
-#st.write(os.environ.get('FASTAPI_URL'))
-#st.write("Используемый URL для FastAPI:", url)
+st.write(os.environ.get('FASTAPI_URL'))
+st.write("Используемый URL для FastAPI:", url)
 
 
 uploaded_file = st.file_uploader("Выберите CSV файл", type="csv")
@@ -25,8 +24,8 @@ if click:
         }
 
        
-        url = fastapi_url
-        #url = f"http://fastapi/receivedataframe" - то, что было в первой версии 
+        
+        url = f"http://fastapi/receivedataframe" 
     
 
         response = requests.post(url, json=payload)
