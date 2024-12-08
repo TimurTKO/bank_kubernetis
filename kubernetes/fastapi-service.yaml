@@ -4,9 +4,9 @@ metadata:
   name: fastapi-service # service name that we use in url in streamlit app
 spec:
   selector:
-    app: fastapi
-  ports:
-  - protocol: TCP
+    app: fastapi # app name that we use in deployment file
+  ports: 
+  - protocol: TCP # protocol
     port: 80
     targetPort: 8000
   type: LoadBalancer
