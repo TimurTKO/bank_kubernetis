@@ -7,6 +7,6 @@ spec:
     app: fastapi # app name that we use in deployment file
   ports: 
   - protocol: TCP # protocol
-    port: 80
-    targetPort: 8000
+    port: 80 # port
+    targetPort: 8000 # target port
   type: LoadBalancer
