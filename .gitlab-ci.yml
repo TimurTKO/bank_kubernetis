@@ -18,7 +18,7 @@ stages:
 
 deploy_staging:
   stage: deploy   # stage name 
-  environment: staging # environment name 
+  environment: staging 
   only:
     - main
   script:
