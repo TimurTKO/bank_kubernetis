@@ -18,7 +18,7 @@ stages:
 
 deploy_staging:
   stage: deploy   
-  environment: staging 
+  environment: staging # testing git pull
   only:
     - main
   script:
