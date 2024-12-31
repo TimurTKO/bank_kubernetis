@@ -10,10 +10,10 @@ variables:
   ENV_ST_NAME: "streamlit-2.4" # Streamlit version change when we add some new features
   IMAGE_NAME_FS: "fastapi" #  FastAPI image name
   IMAGE_NAME_ST: "streamlit" # Streamlit image name 
-  ARTIFACT_REPO: "bankprediction-kubernetis" # Artifact Registry repository name
+  ARTIFACT_REPO: "bankprediction-kubernetis" # Artifact Registry repository name 
 
 stages:
-  - build 
+  - build # build stage
   - deploy    
 
 deploy_staging:
