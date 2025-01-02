@@ -13,8 +13,8 @@ variables:
   ARTIFACT_REPO: "bankprediction-kubernetis" # Artifact Registry repository name 
 
 stages:
-  - build 
-  - deploy    
+  - build # build stage
+  - deploy # deploy stage   
 
 deploy_staging:
   stage: deploy # stage name
