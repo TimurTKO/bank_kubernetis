@@ -14,7 +14,7 @@ variables:
 
 stages:
   - build # build stage
-  - deploy 
+  - deploy # staging deploy stage
 
 deploy_staging:
   stage: deploy # stage name
