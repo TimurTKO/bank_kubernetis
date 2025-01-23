@@ -5,8 +5,8 @@ services:
     ports:
       - "8096:19888"
     volumes:
-      - /home/septim243/Spark/files:/files
-      - /home/septim243/Spark/transfer:/app/transfer
+      - /home/septim239/Spark/files:/files
+      - /home/septim239/Spark/transfer:/app/transfer
 
 
   mlflow:
@@ -19,5 +19,5 @@ services:
     ports:
       - "5000:5000"
     volumes:
-      - /home/septim243/mlruns:/app/mlruns
-      - /home/septim243/mlflow:/app/mlflow
+      - /home/septim239/mlruns:/app/mlruns
+      - /home/septim239/mlflow:/app/mlflow

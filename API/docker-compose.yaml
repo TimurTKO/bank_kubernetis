@@ -5,7 +5,7 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - /home/septim243/API:/app/API 
+      - /home/septim239/API:/app/API 
     
 
   streamlit:
@@ -13,7 +13,7 @@ services:
     ports:
       - "8501:8501"
     volumes:
-      - /home/septim243/API/streamlit:/app/streamlit
+      - /home/septim239/API/streamlit:/app/streamlit
       
   
 

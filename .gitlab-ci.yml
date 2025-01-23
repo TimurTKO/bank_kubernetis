@@ -1,4 +1,4 @@
-image: google/cloud-sdk:latest
+image: google/cloud-sdk:latest # image name
 
 variables:
   PROJECT_ID: bankprediction-kubernetis # project id
