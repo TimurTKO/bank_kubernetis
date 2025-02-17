@@ -6,6 +6,8 @@ services:
       - "8000:8000"
     volumes:
       - /home/septim239/API:/app/API 
+
+      
     
 
   streamlit:
